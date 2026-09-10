@@ -33,17 +33,62 @@
         color: white;
     }
 
+    /* 副標題與導覽文字：Tocas 的 is-description／預設文字色是灰階，
+       疊在紫色漸層背景上對比不足，這裡改用半透明白色 */
+    .koilisu-header .ts-text.is-description {
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .koilisu-header .ts-tab .item {
+        color: rgba(255, 255, 255, 0.8);
+        border-bottom-color: transparent;
+    }
+
+    .koilisu-header .ts-tab .item:hover {
+        color: #fff;
+    }
+
+    .koilisu-header .ts-tab .item.is-active {
+        color: #fff;
+        border-bottom-color: #fff;
+    }
+
     .app-card {
+        position: relative;
         display: block;
         color: inherit;
-        text-decoration: none;
         transition: all 0.3s ease;
-        cursor: pointer;
     }
 
     .app-card:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 卡片標題連結整個卡片可點擊，GitHub 連結浮在上層獨立可點 */
+    .app-card .stretched-link {
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .app-card .stretched-link::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+    }
+
+    .app-card .card-github-link {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--ts-gray-500);
+    }
+
+    .app-card .card-github-link:hover {
+        color: var(--ts-gray-800);
     }
 
     .app-card.is-archived {
@@ -165,7 +210,7 @@
                         <div class="ts-text is-description">順手好用的開放工具集</div>
                     </div>
                     <div class="column">
-                        <nav class="ts-tab is-secondary is-inverted" aria-label="主要導覽">
+                        <nav class="ts-tab" aria-label="主要導覽">
                             <?php $is_home = (($_SERVER['REQUEST_URI'] ?? '') === '/koilisu/' || ($_SERVER['REQUEST_URI'] ?? '') === '/koilisu/index'); ?>
                             <a class="item <?= $is_home ? 'is-active' : '' ?>" href="/koilisu/"
                                 <?= $is_home ? 'aria-current="page"' : '' ?>>首頁</a>
@@ -180,5 +225,5 @@
         <?php endif; ?>
 
         <!-- 主要內容區 -->
-        <main id="main-content" class="ts-content is-padded" style="flex: 1;">
+        <main id="main-content" class="ts-content is-vertically-padded" style="flex: 1;">
             <div class="ts-container"><?php
