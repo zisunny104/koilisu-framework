@@ -72,14 +72,14 @@
     }
 
     .markdown-content code {
-        background-color: #f4f4f4;
+        background-color: var(--ts-gray-100);
         padding: 2px 4px;
         border-radius: 3px;
         font-family: 'Courier New', monospace;
     }
 
     .markdown-content pre {
-        background-color: #f4f4f4;
+        background-color: var(--ts-gray-100);
         padding: 1em;
         border-radius: 6px;
         overflow-x: auto;
@@ -96,6 +96,19 @@
     }
 
     /* 段落間距改善 */
+    .ts-space {
+        display: block;
+        height: var(--ts-space-gap);
+    }
+
+    .ts-space.is-small {
+        height: var(--ts-space-gap-small);
+    }
+
+    .ts-space.is-large {
+        height: var(--ts-space-gap-large);
+    }
+
     .ts-space.is-section {
         margin: 2rem 0;
     }

@@ -59,7 +59,7 @@ function renderAppCard($app_key, $app_config, $archived = false)
 <div class="ts-divider is-section"></div>
 
 <!-- 工具列表 -->
-<div class="ts-header is-large">可用工具</div>
+<div class="ts-header is-large">工具列表</div>
 <div class="ts-space"></div>
 
 <?php if (empty($active_apps)): ?>
@@ -67,7 +67,7 @@ function renderAppCard($app_key, $app_config, $archived = false)
     <div class="ts-content is-padded">
         <div class="ts-text is-center-aligned">
             <div class="ts-icon is-large is-faded">📦</div>
-            <div class="ts-header">尚無可用工具</div>
+            <div class="ts-header">尚無工具</div>
             <div class="ts-text">工具正在開發中，敬請期待！</div>
         </div>
     </div>
@@ -85,8 +85,6 @@ function renderAppCard($app_key, $app_config, $archived = false)
 
 <!-- 封存工具 -->
 <div class="ts-header is-large">封存工具</div>
-<div class="ts-space is-small"></div>
-<div class="ts-text is-description">仍可正常使用，只是不再主推的舊工具。</div>
 <div class="ts-space"></div>
 <div class="ts-grid mobile:is-1-columns tablet:is-2-columns desktop+:is-3-columns">
     <?php foreach ($archived_apps as $app_key => $app_config): ?>
