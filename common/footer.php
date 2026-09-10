@@ -51,7 +51,8 @@ function setTheme(theme) {
         : `is-rounded is-${theme}`;
 
     // Save theme preference to cookie
-    document.cookie = `preferred-theme=${theme}; path=/; max-age=31536000`; // 1 year
+    const secure = location.protocol === 'https:' ? '; Secure' : '';
+    document.cookie = `preferred-theme=${theme}; path=/; max-age=31536000; SameSite=Lax${secure}`; // 1 year
 }
 
 function getPreferredTheme() {
